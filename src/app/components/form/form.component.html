@@ -1,0 +1,6 @@
+<form (submit)="addPost()">
+    <p>Place Name: <input [(ngModel)]="placeName" [ngModelOptions]="{standalone: true}" /></p>
+    <p>Photo: <input [(ngModel)]="photo" [ngModelOptions]="{standalone: true}" /></p>
+    <p>Country: <input [(ngModel)]="country" [ngModelOptions]="{standalone: true}" /></p>
+    <button>Submit</button>
+</form>

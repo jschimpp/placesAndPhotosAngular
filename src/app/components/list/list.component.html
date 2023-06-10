@@ -1,0 +1,17 @@
+<div>
+    <div *ngFor="let item of posts">
+      <img src="{{ item.photo }}" />
+      <div *ngIf="editMode === true; else editModeTemplate">
+        <input [(ngModel)]="photo" [ngModelOptions]="{ standalone: true }" />
+        <button (click)="editPhoto(item._id, this.photo)">Submit</button>
+        <button (click)="this.editMode=false">Discard Change</button>
+      </div>
+      <ng-template #editModeTemplate>
+        <button (click)="editMode = true">Edit Photo</button>
+      </ng-template>
+      <button (click)="deletePhoto(item._id)">Delete Entry</button>
+      <h3>{{ item.placeName }}</h3>
+      <p>{{ item.country }}</p>
+    </div>
+  </div>
+  
