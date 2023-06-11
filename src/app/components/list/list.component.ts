@@ -25,11 +25,18 @@ ngOnInit() {
 editPhoto(_id: string, photo: string) {
   this.photo = photo
   this.dataService.editPhoto(_id, photo)
+  this.dataService.posts$.subscribe((posts) => {
+    const post: PostItem = posts.find((item) => item._id === _id)
+    post.photo = photo
+  })
+
   this.editMode=false
 }
 
 deletePhoto(_id: string) {
   this.dataService.deletePhoto(_id)
+  this.dataService.posts$.subscribe((posts) => {
+    this.posts = posts.filter((item) => item._id !== _id)
+  })
 }
-
 }

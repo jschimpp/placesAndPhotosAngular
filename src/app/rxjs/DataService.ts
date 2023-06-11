@@ -31,7 +31,7 @@ import axios from 'axios';
         })
         .then(() => {
             console.log('Successfully Submitted')
-            this.getPosts()
+            // this.getPosts()
         })
         .catch(() => {
             console.log('Data not submitted')
@@ -42,7 +42,7 @@ import axios from 'axios';
             axios.put(`http://localhost:8080/posts/${_id}`, {photo: photo})
             .then(() => {
                 console.log('Successfully Updated')
-                this.getPosts()
+                // this.getPosts()
             })
             .catch(() => {
                 console.log('Failed to Update')
@@ -53,10 +53,13 @@ import axios from 'axios';
         axios.delete(`http://localhost:8080/posts/${_id}`)
         .then(() => {
             console.log('Successfully Deleted')
-            this.getPosts()
+            // this.getPosts()
         })
         .catch(() => {
             console.log('Failed to Delete')
-        })
+        });
+        // this.posts$.subscribe((posts) => {
+        //     posts.filter((item) => item._id === _id)
+        // })
     }
   }
